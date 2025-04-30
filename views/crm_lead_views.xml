@@ -32,7 +32,7 @@
     <record id="crm_case_kanban_view_oppor_inherit_country_detect" model="ir.ui.view">
         <field name="name">crm.lead.oppor.kanban.inherit.country.detect</field>
         <field name="model">crm.lead</field>
-        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads_opportunity"/>
+        <field name="inherit_id" ref="crm.crm_opportunity_kanban_view"/>
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('oe_kanban_content')]/div[1]/strong" position="after">
                 <span t-if="record.country_flag.raw_value"> <t t-esc="record.country_flag.raw_value"/></span>
