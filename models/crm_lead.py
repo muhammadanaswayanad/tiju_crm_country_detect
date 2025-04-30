@@ -43,3 +43,24 @@ class CrmLead(models.Model):
 
             lead.possible_country = country_name
             lead.country_flag = country_flag
+
+    @api.model
+    def update_country_detection_for_existing_leads(self, limit=500):
+        """
+        Update country detection for existing leads in batches
+        This method is meant to be called by a scheduled action
+        """
+        # Get leads that have a phone number but may need country detection update
+        leads = self.search([
+            '|',
+            ('possible_country', '=', False),
+            '&',
+            ('possible_country', '=', 'Unknown'),
+            ('phone', '!=', False)
+        ], limit=limit)
+        
+        if leads:
+            # Force recomputation of the fields
+            leads._compute_possible_country()
+            return f"Updated {len(leads)} lead records with country detection"
+        return "No leads to update"

@@ -12,10 +12,14 @@
     'depends': ['crm'],
     'data': [
         'security/ir.model.access.csv',
+        'data/ir_cron.xml',
         'views/crm_lead_views.xml',
     ],
     'license': 'LGPL-3',
     'installable': True,
     'auto_install': False,
     'application': False,
+    'external_dependencies': {
+        'python': ['phonenumbers', 'pycountry'],
+    },
 }
