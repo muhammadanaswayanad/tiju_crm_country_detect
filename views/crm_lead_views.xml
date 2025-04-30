@@ -24,11 +24,8 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
                 <field name="country_flag" invisible="1"/>
-            </xpath>
-            <xpath expr="//div[hasclass('o_kanban_record_title')]" position="replace">
-                <div class="o_kanban_record_title">
-                    <strong><field name="name"/></strong>
-                    <span t-if="record.country_flag.raw_value"> <t t-esc="record.country_flag.raw_value"/></span>
+                <div t-if="record.country_flag.raw_value" style="display: inline-block; margin-left: 4px;">
+                    <span t-esc="record.country_flag.raw_value"/>
                 </div>
             </xpath>
         </field>
@@ -42,11 +39,8 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
                 <field name="country_flag" invisible="1"/>
-            </xpath>
-            <xpath expr="//div[hasclass('o_kanban_record_title')]" position="replace">
-                <div class="o_kanban_record_title">
-                    <strong><field name="name"/></strong>
-                    <span t-if="record.country_flag.raw_value"> <t t-esc="record.country_flag.raw_value"/></span>
+                <div t-if="record.country_flag.raw_value" style="display: inline-block; margin-left: 4px;">
+                    <span t-esc="record.country_flag.raw_value"/>
                 </div>
             </xpath>
         </field>
